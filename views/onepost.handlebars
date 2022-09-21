@@ -1,0 +1,13 @@
+{{> post-info post}}
+
+{{#if loggedIn}}
+
+{{> comment-form}}
+
+{{/if}}
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+
+<script src="/js/comment.js"></script>
+{{/if}}

@@ -1,3 +1,5 @@
-DROP DATABASE IF EXISTS hectorsBlog_db;
+DROP DATABASE IF EXISTS hectorsblog_db;
 
-CREATE DATABASE hectorsBlog_db;
+CREATE DATABASE hectorsblog_db;
+
+USE hectorsblog_db;

@@ -1,42 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Registry</title>
-    <link rel="stylesheet" href="/css/jass.css" />
-  </head>
-  <header>
-    <button>
-      <p> Home </p>
-    </button>
-    <button>
-      <p>Dashboard</p>
-    </button>
-    {{#if logged_in}}
-      <button>
-        <p>Logout</p>
-      </button>
-    {{else}}
-      <button>
-        <p>Login</p>
-      </button>
-    {{/if}}
-  </header>
-
-  <body>
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        User Registry
-      </h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <title>Tech-Blogginator</title>
+</head>
+<body class="flex-column min-100-vh">
+    <header class="hero">
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                {{#if loggedIn}}
+                <li>
+                    <a href="/dashboard">Dashboard</a>
+                </li>
+                <button id="logout" class="btn-no-style">Logout</button>
+                {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+        <h1 class="app-title">Tech-Blogginator</h1>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the contents of the sub layout here -->
-      {{{body}}}
+    <main>
+      {{{ body }}}
     </main>
-    <footer>
+  </div>
 
-    </footer>
-  </body>
+{{!-- in order to not receive an error after removing the logout button from the page, wrap the <script> element with an {{#if}} helper --}}
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+</body>
 
 </html>

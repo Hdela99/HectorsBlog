@@ -1,5 +1,5 @@
 const { Model, DataTypes, Sequelize } = require("sequelize");
-const sequelize = requrie("../config/connection");
+const sequelize = require("../config/connection");
 
 class Comment extends Model {}
 
@@ -30,6 +30,11 @@ Comment.init(
         model: "Post",
         key: "id",
       },
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {

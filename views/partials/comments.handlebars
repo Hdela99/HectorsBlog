@@ -1,0 +1,16 @@
+<section class="comments card">
+    <div class="card-header">Comments</div>
+    {{#if this}}
+    {{#each this}}
+        <div class="comment">
+            <p>{{commentary}}</p>
+            <p>&mdash; {{user.username}} on {{format_date date_created}}</p>
+        </div>
+    {{/each}}
+    {{else}}
+        <div class="comment">
+            <p>There are no comments</p>
+        </div>
+    {{/if}}
+    </div>
+</section> 
