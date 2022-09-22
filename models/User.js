@@ -23,14 +23,6 @@ User.init(
         len: [3, 64],
       },
     },
-    email: {
-      type: Sequelize.STRING,
-      allownull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,

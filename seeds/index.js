@@ -4,18 +4,18 @@ const { User, Post, Comment } = require("../models");
 
 const users = [
   {
+    id: 1,
     username: "Clark",
-    email: "Superman123@gmail.com",
     password: "NotSuperman01",
   },
   {
+    id: 2,
     username: "Hal",
-    email: "DarkestDays123@gmail.com",
     password: "GreenLantern03",
   },
   {
+    id: 3,
     username: "Bruce",
-    email: "ImBatman123@gmail.com",
     password: "ImBatman01",
   },
 ];

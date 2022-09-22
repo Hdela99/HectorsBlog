@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "title", "content", "date_created"],
+        attributes: ["id", "post_title", "content", "date_created"],
       },
       {
         model: Comment,
@@ -55,7 +55,6 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
-    email: req.body.email,
     password: req.body.password,
   }).then((dbUserData) => {
     req.session.save(() => {
@@ -77,11 +76,10 @@ router.post("/login", (req, res) => {
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
+      res.status(400).json({ message: "No user with that username" });
       return;
     }
 
-    // if email found in database, verify user's identity by matching user password to the hashed password
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {

@@ -7,16 +7,16 @@
   </div>
     <div>
         <label for="post-title">post title:</label>
-      <input class="input" id="post-title" type="text" value="{{post.title}}" />
+      <input class="input" id="post-title" type="text" value="{{post.post_title}}" />
     </div>
     <div>
         <label for="post-content">post content:</label>
-      <input class="input" id="post-content" type="text" value="{{post.contents}}" />
+      <input class="input" id="post-content" type="text" value="{{post.content}}" />
     </div>
     <div class="is-pulled-right">
        created by you on {{format_date post.date_created}}
       |
-      <a href="/post/{{post.id}}">{{comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <a href="/post/{{post.id}}">{{comments.length}} {{format_plural "comment" post.content.length}}</a>
     </div>
     <button type="submit" class="button is-success">Save post</button>
     <button type="button" class="button is-danger" id= "delete-post-btn">Delete post</button>
@@ -28,7 +28,7 @@
     {{#if this}}
     {{#each this}}
         <div class="comment">
-            <p>{{commentary}}</p>
+            <p>{{content}}</p>
             <p>&mdash; {{user.username}} on {{format_date date_created}}</p>
         </div>
     {{/each}}
@@ -40,5 +40,5 @@
     </div>
 </section> 
 
-<script src="/js/edit.js"></script>
+<script src="/js/update.js"></script>
 <script src="/js/delete.js"></script>

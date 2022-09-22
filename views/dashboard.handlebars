@@ -1,0 +1,45 @@
+{{#if post.length}}
+  <section class="card">
+    <div class="card-header">Your Posts</div>
+    <div class="post-body">
+      <ul class="post-list">
+        {{#each post}}
+          <a href="/dashboard/update/{{id}}">
+            <li class="post-list-item">
+              <div>{{post_title}}</div>
+              <div>{{format_date date_created}}</div>
+            </li>
+          </a>
+        {{/each}}
+      </ul>
+    </div>
+  </section>
+{{/if}}
+
+<section class="card hide" id="create-post-card">
+  <div class="card-header">Create New Post</div>
+  <div class="card-body">
+    <form class="new-post-form">
+      <div>
+        <label for="post-title" class="form-label">Title</label>
+        <input class="form-input" id="post-title" type="text" name="title" />
+      </div>
+      <div>
+        <label for="post-content" class="form-label">Post Text</label>
+        <input
+          class="form-input"
+          id="post-content"
+          type="text"
+          name="content"
+        />
+      </div>
+      <button type="submit" class="btn">Submit Post</button>
+    </form>
+  </div>
+
+</section>
+<div class="center">
+  <button id="add-post-btn">Create New Post</button>
+</div>
+
+<script src="./js/new.js"></script>
