@@ -2,10 +2,10 @@
 
 :root {
   --primary: #f7f8f7;
-  --secondary: #2e8d3c;
+  --secondary: #506953;
   --tertiary: #686868;
-  --light-dark: #059f21;
-  --dark: #025710;
+  --light-dark: #000000;
+  --dark: #000000;
   --border-radius: 0.3rem;
 }
 

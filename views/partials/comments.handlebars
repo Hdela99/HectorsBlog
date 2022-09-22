@@ -1,9 +1,13 @@
 <section class="comments card">
     <div class="card-header">Comments</div>
     {{#if this}}
-    {{#each this}}
+    <p>{{this.comments}}</p>
+    <p> yuh</p>
+    <p>{{content}} what</p>
+    {{#each posts.comments}}
         <div class="comment">
             <p>{{content}}</p>
+            <p>{{username}}</p>
             <p>&mdash; {{user.username}} on {{format_date date_created}}</p>
         </div>
     {{/each}}

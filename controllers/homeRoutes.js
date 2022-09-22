@@ -34,7 +34,7 @@ router.get("/login", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("signup");
+  res.render("login");
 });
 
 router.get("/signup", (req, res) => {

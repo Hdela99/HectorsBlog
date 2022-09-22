@@ -1,14 +1,25 @@
 const router = require("express").Router();
-const { Comment } = require("../../models/");
+const { Comment, User } = require("../../models/");
 const withAuth = require("../../utils/auth");
 
-//GET/READ
+//GET all comments
 router.get("/", (req, res) => {
   Comment.findAll({
     attributes: ["id", "content", "user_id", "post_id", "date_created"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
     order: [["date_created", "DESC"]],
   })
-    .then((dbCommentData) => res.json(dbCommentData))
+    .then((dbCommentData) => {
+      const comments = dbCommentData.map((comment) =>
+        comment.get({ plain: true })
+      );
+      res.render("single-post", { comments, loggedIn: req.session.loggedIn });
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);

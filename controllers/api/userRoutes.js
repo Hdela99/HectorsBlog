@@ -103,7 +103,7 @@ router.post("/login", (req, res) => {
 
 // allow user to logout
 // destroy session variables and reset the cookie
-router.post("/logout", (req, res) => {
+router.post("/api/user/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
